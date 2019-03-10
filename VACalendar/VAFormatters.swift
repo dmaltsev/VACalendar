@@ -22,4 +22,10 @@ struct VAFormatters {
         return formatter
     }()
     
+    static let yearFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        return formatter
+    }()
+    
 }

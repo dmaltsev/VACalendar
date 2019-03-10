@@ -58,6 +58,7 @@ class VAMonthView: UIView {
     
     private let showDaysOut: Bool
     private var monthLabel: UILabel?
+    private var yearLabel: UILabel?
     private var weekViews = [VAWeekView]()
     private let weekHeight: CGFloat
     private var viewType: VACalendarViewType
@@ -84,6 +85,7 @@ class VAMonthView: UIView {
         
         if scrollDirection == .vertical {
             setupMonthLabel()
+            setupYearLabel()
         }
 
         self.weekViews = []
@@ -146,7 +148,7 @@ class VAMonthView: UIView {
     private func setupMonthLabel() {
         let textColor = month.isCurrent ? monthViewAppearanceDelegate?.verticalCurrentMonthTitleColor?() :
             monthViewAppearanceDelegate?.verticalMonthTitleColor?()
-				let textFormatter = monthViewAppearanceDelegate?.verticalMonthDateFormater?() ?? VAFormatters.monthFormatter
+        let textFormatter = monthViewAppearanceDelegate?.verticalMonthDateFormater?() ?? VAFormatters.monthFormatter
         
         monthLabel = UILabel()
         monthLabel?.text = textFormatter.string(from: month.date)
@@ -155,6 +157,19 @@ class VAMonthView: UIView {
         monthLabel?.sizeToFit()
         monthLabel?.center.x = center.x
         addSubview(monthLabel ?? UIView())
+    }
+    
+    private func setupYearLabel() {
+        let textColor = UIColor.black
+        let textFormatter = VAFormatters.yearFormatter
+        
+        yearLabel = UILabel()
+        yearLabel?.text = textFormatter.string(from: month.date)
+        yearLabel?.textColor = textColor ?? monthLabel?.textColor
+        yearLabel?.font = monthViewAppearanceDelegate?.verticalMonthTitleFont?() ?? monthLabel?.font
+        yearLabel?.sizeToFit()
+        yearLabel?.center.x = yearLabel!.frame.width / 2
+        addSubview(yearLabel ?? UIView())
     }
     
 }
