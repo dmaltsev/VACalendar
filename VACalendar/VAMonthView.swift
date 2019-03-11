@@ -155,7 +155,7 @@ class VAMonthView: UIView {
         monthLabel?.textColor = textColor ?? monthLabel?.textColor
         monthLabel?.font = monthViewAppearanceDelegate?.verticalMonthTitleFont?() ?? monthLabel?.font
         monthLabel?.sizeToFit()
-        monthLabel?.center.x = self.frame.width - monthLabel!.frame.width / 2
+        monthLabel?.center.x = self.frame.width - monthLabel!.frame.width / 2 - 16
         addSubview(monthLabel ?? UIView())
     }
     
@@ -168,7 +168,7 @@ class VAMonthView: UIView {
         yearLabel?.textColor = textColor ?? monthLabel?.textColor
         yearLabel?.font = monthViewAppearanceDelegate?.verticalMonthTitleFont?() ?? monthLabel?.font
         yearLabel?.sizeToFit()
-        yearLabel?.center.x = yearLabel!.frame.width / 2
+        yearLabel?.center.x = yearLabel!.frame.width / 2 + 16
         addSubview(yearLabel ?? UIView())
     }
     
