@@ -130,6 +130,9 @@ class VADayView: UIView {
                 stack.center.x = dateLabel.center.x
                 addSubview(stack)
                 supplementaryViews.append(stack)
+            case .circleBackground(let color):
+                dateLabel.layer.cornerRadius = dateLabel.frame.height / 2
+                dateLabel.backgroundColor = UIColor.blue
             }
         }
     }

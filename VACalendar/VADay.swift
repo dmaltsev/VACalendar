@@ -22,11 +22,14 @@ public enum VADaySupplementary: Hashable {
     
     // 3 dot max
     case bottomDots([UIColor])
+    case circleBackground(UIColor)
     
     public var hashValue: Int {
         switch self {
         case .bottomDots:
             return 1
+        case .circleBackground:
+            return 2
         }
     }
     
